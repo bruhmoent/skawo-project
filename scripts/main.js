@@ -1,0 +1,1 @@
+// This file manages crucial functions, encompassing tasks like adjusting text size, zooming in and out, and executing the interactive map script.

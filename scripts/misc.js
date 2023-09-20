@@ -1,0 +1,1 @@
+// This file contains functions that are not suitable for inclusion in the main file. These functions encompass animations and those responsible for the interactivity of the site.
