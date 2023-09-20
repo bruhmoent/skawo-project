@@ -4,7 +4,7 @@
   <img width="200" src="assets/Skawo.png" alt="Skawo's logo" style="border-radius: 50%; border: 4px solid #ff5722;">
 </p>
 
-<p align="center">Framework: Symfony</p>
+<p align="center">Framework: Laravel</p>
 <p align="center">Languages: PHP, JS</p>
 <p align="center">Region: Scandinavian Countries</p>
 
