@@ -28,10 +28,13 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-
+          
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
+    - name: Check PHP syntax
+      run: find . -name "*.php" -exec php -l {} \;
+      
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
