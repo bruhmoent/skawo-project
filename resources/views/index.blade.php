@@ -19,9 +19,9 @@
 
 <body>
     <p>Welcome to Skawo!</p>
+
     <?php
-    divide by 1;
-    echo .f
+
     ?>
 </body>
 </html>
