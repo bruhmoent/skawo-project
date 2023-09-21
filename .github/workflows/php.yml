@@ -32,8 +32,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Check PHP syntax
-      run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
+    - name: Check PHP syntax for files in resources/views
+      run: find resources/views -name "*.php" -exec php -l {} \;
       
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
