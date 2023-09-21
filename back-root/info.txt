@@ -1,1 +1,0 @@
-This folder encompasses PHP functions and framework definitions, serving as the designated location for database and backend components. The framework being used is Laravel.
