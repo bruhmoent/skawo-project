@@ -19,5 +19,21 @@
 
 <body>
     <p>Welcome to Skawo!</p>
+
+    <?php
+
+    // EXAMPLE: Obtain data from table:
+    $_workflows = \App\Models\_workflow::all();
+
+    // EXAMPLE: Obtain data from table by specific ID:
+    $_workflow = \App\Models\_workflow::find(1);
+
+    // EXAMPLE: Create a new workflow
+    $_new_log = \App\Models\_workflow::create([
+        '_LOG' => "DEBUG::LOG"
+    ]);
+
+    echo $_workflow['_LOG'];
+    ?>
 </body>
 </html>
