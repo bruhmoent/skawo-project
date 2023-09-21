@@ -1,7 +1,7 @@
 <h1 align="center"> Skawo - Traveling </h1>
 
 <p align="center">
-  <img width="200" src="assets/Skawo.png" alt="Skawo's logo" style="border-radius: 50%; border: 4px solid #ff5722;">
+  <img width="200" src="resources/mirrors/Skawo.png" alt="Skawo's logo" style="border-radius: 50%; border: 4px solid #ff5722;">
 </p>
 
 <p align="center">Framework: Laravel</p>
