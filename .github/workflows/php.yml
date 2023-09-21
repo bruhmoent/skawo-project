@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Laravel PHP Composer
 
 on:
   push:
@@ -17,8 +17,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4  # Adjust to your Laravel version
+        extensions: mbstring, xml, zip, pdo, bcmath, ctype, json, tokenizer, xmlwriter
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
 
     - name: Cache Composer packages
       id: composer-cache
@@ -28,21 +34,26 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-          
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
+    
     - name: Install PHPStan
       run: composer require --dev phpstan/phpstan
-    
+
+    - name: Set up Laravel
+      run: |
+        cp .env.example .env
+        php artisan key:generate
+        php artisan config:cache
+
     - name: Check PHP syntax for files in resources/views
       run: find resources/views -name "*.php" -exec php -l {} \;
 
-    - name: Run PHPStan Analysis
-      run: vendor/bin/phpstan analyze --level=7 resources/views
-      
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+    - name: Compile Blade templates
+      run: php artisan view:cache
 
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Run PHPStan Analysis
+      run: vendor/bin/phpstan analyze --level=7
+
+    # Add additional Laravel setup and testing steps here
+
+    # - name: Run Laravel tests
+    #   run: php artisan test
