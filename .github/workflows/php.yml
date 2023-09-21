@@ -32,8 +32,14 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
+    - name: Install PHPStan
+      run: composer require --dev phpstan/phpstan
+    
     - name: Check PHP syntax for files in resources/views
       run: find resources/views -name "*.php" -exec php -l {} \;
+
+    - name: Run PHPStan Analysis
+      run: vendor/bin/phpstan analyze --level=7 resources/views
       
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
