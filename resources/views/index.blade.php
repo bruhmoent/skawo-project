@@ -27,7 +27,8 @@
     // Check if the trip schedule already exists.
     $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
 
-    if (!$trip_schedule) {
+    if (!$trip_schedule) 
+    {
         DB::table('trip_schedules')->insert([
             'participants' => $json_participants,
             'start_date' => '2023-09-21',
@@ -43,7 +44,8 @@
     // Check if the user already exists.
     $user = DB::table('users')->where('username', 'john_doe')->first();
 
-    if (!$user) {
+    if (!$user) 
+    {
         DB::table('users')->insert([
             'username' => 'john_doe',
             'name' => 'John',
@@ -55,17 +57,21 @@
         $user = DB::table('users')->where('username', 'john_doe')->first();
     }
 
-    if ($trip_schedule && $user) {
+    if ($trip_schedule && $user) 
+    {
         echo $user->name . " participated in: " . $trip_schedule->description;
-    } else {
+    } else 
+    {
         echo "Unable to find the required records.";
     }
 
-    if ($trip_schedule) {
+    if ($trip_schedule) 
+    {
         $participants = json_decode($trip_schedule->participants, true);
     
         $participants_to_add = 1;
-        if (!in_array($participants_to_add, $participants)) {
+        if (!in_array($participants_to_add, $participants)) 
+        {
             // Add the participant to the array.
             $participants[] = $participants_to_add;
     
@@ -77,10 +83,12 @@
             ]);
     
             echo "Participant added successfully.";
-        } else {
+        } else 
+        {
             echo "Participant already exists in the participants array.";
         }
-    } else {
+    } else 
+    {
         echo "Trip schedule not found.";
     }
 
@@ -92,7 +100,8 @@
         ->pluck('name');
 
     // Display the name of the participants names.
-    foreach ($participants as $participant) {
+    foreach ($participants as $participant) 
+    {
         echo $participant . '<br>';
     }
 
