@@ -21,19 +21,82 @@
     <p>Welcome to Skawo!</p>
 
     <?php
+    $participants = [1, 2, 3, 4];
+    $json_participants = json_encode($participants);
 
-    // EXAMPLE: Obtain data from table:
-    $_workflows = \App\Models\_workflow::all();
+    // Check if the trip schedule already exists.
+    $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
 
-    // EXAMPLE: Obtain data from table by specific ID:
-    $_workflow = \App\Models\_workflow::find(1);
+    if (!$trip_schedule) {
+        DB::table('trip_schedules')->insert([
+            'participants' => $json_participants,
+            'start_date' => '2023-09-21',
+            'end_date' => '2023-09-28',
+            'description' => 'A trip to the mountains',
+            'latitude' => 45.12345678,
+            'longitude' => -78.12345678,
+        ]);
 
-    // EXAMPLE: Create a new workflow
-    $_new_log = \App\Models\_workflow::create([
-        '_LOG' => "DEBUG::LOG"
-    ]);
+        $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
+    }
 
-    echo $_workflow['_LOG'];
+    // Check if the user already exists.
+    $user = DB::table('users')->where('username', 'john_doe')->first();
+
+    if (!$user) {
+        DB::table('users')->insert([
+            'username' => 'john_doe',
+            'name' => 'John',
+            'surname' => 'Doe',
+            'password' => bcrypt('password123'),
+            'trip_id' => $trip_schedule->id,
+        ]);
+
+        $user = DB::table('users')->where('username', 'john_doe')->first();
+    }
+
+    if ($trip_schedule && $user) {
+        echo $user->name . " participated in: " . $trip_schedule->description;
+    } else {
+        echo "Unable to find the required records.";
+    }
+
+    if ($trip_schedule) {
+        $participants = json_decode($trip_schedule->participants, true);
+    
+        $participantToAdd = 1;
+        if (!in_array($participantToAdd, $participants)) {
+            // Add the participant to the array.
+            $participants[] = $participantToAdd;
+    
+            $json_participants = json_encode($participants);
+    
+            // Update the participants in the database.
+            DB::table('trip_schedules')->where('id', 1)->update([
+                'participants' => $json_participants,
+            ]);
+    
+            echo "Participant added successfully.";
+        } else {
+            echo "Participant already exists in the participants array.";
+        }
+    } else {
+        echo "Trip schedule not found.";
+    }
+
+    $participant_ids = json_decode($trip_schedule->participants);
+
+    // Fetch participant names from the users table.
+    $participants = DB::table('users')
+        ->whereIn('id', $participant_ids)
+        ->pluck('name');
+
+    // Display the name of the participants names.
+    foreach ($participants as $participant) {
+        echo $participant . '<br>';
+    }
+
     ?>
+    
 </body>
 </html>
