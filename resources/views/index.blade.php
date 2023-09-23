@@ -64,10 +64,10 @@
     if ($trip_schedule) {
         $participants = json_decode($trip_schedule->participants, true);
     
-        $participantToAdd = 1;
-        if (!in_array($participantToAdd, $participants)) {
+        $participants_to_add = 1;
+        if (!in_array($participants_to_add, $participants)) {
             // Add the participant to the array.
-            $participants[] = $participantToAdd;
+            $participants[] = $participants_to_add;
     
             $json_participants = json_encode($participants);
     
