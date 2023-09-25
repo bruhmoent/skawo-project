@@ -11,15 +11,31 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
 
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo.ico') }}" type="image/x-icon">
 </head>
 
 <body>
-    <p>Welcome to Skawo!</p>
+    <div class="header">
+    <img src="{{ asset('mirrors/Skawo.png') }}" alt="Logo" class="logo-img">
+        <div class="overlay">
+        </div>
+        <div class="text-section">
+            <div style="font-size: 48px"class="logo-text">SKAWO</div>
+            <div class="divider"></div>
+            <div class="main-text">Discover Scandinavia: Your Gateway to Nordic Adventures!</div>
+        </div>
+    </div>
 
+    <div class="container">
+        <div class="nav-item">ABOUT</div>
+        <div class="nav-item">SIGN IN</div>
+        <div class="nav-item">SIGN OUT</div>
+        <div class="nav-item">BOOK</div>
+        <div class="nav-item">Welcome, $user!</div>
+    </div>
     <?php
     $participants = [1, 2, 3, 4];
     $json_participants = json_encode($participants);
@@ -59,10 +75,10 @@
 
     if ($trip_schedule && $user) 
     {
-        echo $user->name . " participated in: " . $trip_schedule->description;
+        //echo $user->name . " participated in: " . $trip_schedule->description;
     } else 
     {
-        echo "Unable to find the required records.";
+        //echo "Unable to find the required records.";
     }
 
     if ($trip_schedule) 
@@ -82,14 +98,14 @@
                 'participants' => $json_participants,
             ]);
     
-            echo "Participant added successfully.";
+            //echo "Participant added successfully.";
         } else 
         {
-            echo "Participant already exists in the participants array.";
+            //echo "Participant already exists in the participants array.";
         }
     } else 
     {
-        echo "Trip schedule not found.";
+        //echo "Trip schedule not found.";
     }
 
     $participant_ids = json_decode($trip_schedule->participants);
@@ -102,7 +118,7 @@
     // Display the name of the participants names.
     foreach ($participants as $participant) 
     {
-        echo $participant . '<br>';
+       // echo $participant . '<br>';
     }
 
     ?>

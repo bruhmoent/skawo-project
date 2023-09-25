@@ -1,0 +1,151 @@
+body, html 
+{
+  margin: 0;
+  padding: 0;
+}
+
+.container 
+{
+  width: 100%;
+  height: 70px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px groove black;
+}
+
+.container::before 
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: -1;
+}
+
+.nav-item 
+{
+  background: rgba(102, 98, 98, 0.3) !important;
+  color: white;
+  line-height: 50px;
+  flex: 1;
+  text-align: center;
+  margin: 5px;
+  padding: 0 25px;
+  transition: background 0.3s;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.nav-item:hover 
+{
+  background: rgba(165, 165, 165, 0.5) !important;
+}
+
+@media (max-width: 768px) 
+{
+  .container 
+  {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .nav-item 
+  {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .logo-img
+  {
+    display: none;
+  }
+}
+
+.header 
+{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-bottom: 165px;
+}
+
+.overlay 
+{
+  width: 100%;
+  height: 168px;
+  position: absolute;
+  background-position: 50% 50%;
+  top: 0px;
+  filter: blur(4px);
+  background-image: url('banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: left;
+  border-radius: 10px;
+}
+
+.overlay::after 
+{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.logo-img 
+{
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  border-radius: 10px;
+}
+
+.text-section 
+{
+  max-width: 80%;
+  height: auto;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.divider 
+{
+  width: 100%;
+  height: 1px;
+  background: white;
+  margin: 10px 0;
+}
+
+.main-text, .logo-text 
+{
+  width: 100%;
+  text-align: center;
+  color: white;
+  word-wrap: break-word;
+}
