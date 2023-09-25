@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Skawo - Welcome!</title>
+    <title>Skawo - Welcome</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,7 +23,7 @@
         <div class="overlay">
         </div>
         <div class="text-section">
-            <div style="font-size: 48px"class="logo-text">SKAWO</div>
+            <div style="font-size: 48px"class="logo-text">☸ • SKAWO • ☸</div>
             <div class="divider"></div>
             <div class="main-text">Discover Scandinavia: Your Gateway to Nordic Adventures!</div>
         </div>
@@ -31,9 +31,9 @@
 
     <div class="container">
         <div class="nav-item">ABOUT</div>
+        <div class="nav-item">START BOOKING</div>
         <div class="nav-item">SIGN IN</div>
         <div class="nav-item">SIGN OUT</div>
-        <div class="nav-item">BOOK</div>
         <div class="nav-item">Welcome, $user!</div>
     </div>
     <?php
