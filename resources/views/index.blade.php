@@ -36,6 +36,7 @@
         <div class="nav-item">SIGN OUT</div>
         <div class="nav-item">Welcome, $user!</div>
     </div>
+    
     <?php
     $participants = [1, 2, 3, 4];
     $json_participants = json_encode($participants);
