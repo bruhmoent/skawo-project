@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
 
     <!-- Icon -->
-    <link rel="icon" href="{{ asset('Skawo.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
 
 <body>
     <div class="header">
-    <img src="{{ asset('mirrors/Skawo.png') }}" alt="Logo" class="logo-img">
+    <img src="{{ asset('mirrors/Skawo-Glass.png') }}" alt="Logo" class="logo-img">
         <div class="overlay">
         </div>
         <div class="text-section">
@@ -37,92 +37,165 @@
         <div class="nav-item">Welcome, $user!</div>
     </div>
     
+    <div id="middle">
+        <h1 id="text-middle">What's our mission?</h1>
+        <div id="middle-content">
+            <div id="infodiv">
+                <h5>Our offers right now:</h5>
+                <div id="offers-list"></div>
+            </div>
+        <div id="middle-center">
+            <div id="text-container">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
+            </p>
+            </div>
+            <button id="mid-but">
+                <p id="mid-but-txt">Register</p>
+            </button>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <button id="arrow-left" onclick="show(-1)"><i class="arrow left"></i></button>
+        <div id="carousel-container">
+        <ul id="slider">
+            <li class="slider-page">
+            <div class="slide-content">
+                <img class="slider-img img1" src="//picsum.photos/300/200?1" alt="Slide 1">
+                <img class="slider-img img2" src="//picsum.photos/300/200?2" alt="Slide 2">
+            </div>
+            </li>
+            <li class="slider-page">
+            <div class="slide-content">
+                <img class="slider-img img3" src="//picsum.photos/300/200?3" alt="Slide 3">
+                <img class="slider-img img4" src="//picsum.photos/300/200?4" alt="Slide 4">
+            </div>
+            </li>
+        </ul>
+        </div>
+        <button id="arrow-right" onclick="show(+1)"><i class="arrow right"></i></button>
+    </div>
+
+    <script>
+        let li_els = document.querySelectorAll('ul li');
+        let index = 0;
+
+        function show(increase) {
+            index = index + increase;
+            index = Math.min(Math.max(index, 0), li_els.length - 1);
+            li_els[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+            });
+        }
+
+        window.addEventListener("load", (event) => {
+        show(+1);
+        });
+    </script>
+
     <?php
-    $participants = [1, 2, 3, 4];
-    $json_participants = json_encode($participants);
+        $participants = [1, 2, 3, 4];
+        $json_participants = json_encode($participants);
 
-    // Check if the trip schedule already exists.
-    $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
-
-    if (!$trip_schedule) 
-    {
-        DB::table('trip_schedules')->insert([
-            'participants' => $json_participants,
-            'start_date' => '2023-09-21',
-            'end_date' => '2023-09-28',
-            'description' => 'A trip to the mountains',
-            'latitude' => 45.12345678,
-            'longitude' => -78.12345678,
-        ]);
-
+        // Check if the trip schedule already exists.
         $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
-    }
 
-    // Check if the user already exists.
-    $user = DB::table('users')->where('username', 'john_doe')->first();
-
-    if (!$user) 
-    {
-        DB::table('users')->insert([
-            'username' => 'john_doe',
-            'name' => 'John',
-            'surname' => 'Doe',
-            'password' => bcrypt('password123'),
-            'trip_id' => $trip_schedule->id,
-        ]);
-
-        $user = DB::table('users')->where('username', 'john_doe')->first();
-    }
-
-    if ($trip_schedule && $user) 
-    {
-        //echo $user->name . " participated in: " . $trip_schedule->description;
-    } else 
-    {
-        //echo "Unable to find the required records.";
-    }
-
-    if ($trip_schedule) 
-    {
-        $participants = json_decode($trip_schedule->participants, true);
-    
-        $participants_to_add = 1;
-        if (!in_array($participants_to_add, $participants)) 
+        if (!$trip_schedule) 
         {
-            // Add the participant to the array.
-            $participants[] = $participants_to_add;
-    
-            $json_participants = json_encode($participants);
-    
-            // Update the participants in the database.
-            DB::table('trip_schedules')->where('id', 1)->update([
+            DB::table('trip_schedules')->insert([
                 'participants' => $json_participants,
+                'start_date' => '2023-09-21',
+                'end_date' => '2023-09-28',
+                'description' => 'A trip to the mountains',
+                'latitude' => 45.12345678,
+                'longitude' => -78.12345678,
             ]);
-    
-            //echo "Participant added successfully.";
+
+            $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
+        }
+
+        // Check if the user already exists.
+        $user = DB::table('users')->where('username', 'john_doe')->first();
+
+        if (!$user) 
+        {
+            DB::table('users')->insert([
+                'username' => 'john_doe',
+                'name' => 'John',
+                'surname' => 'Doe',
+                'password' => bcrypt('password123'),
+                'trip_id' => $trip_schedule->id,
+            ]);
+
+            $user = DB::table('users')->where('username', 'john_doe')->first();
+        }
+
+        if ($trip_schedule && $user) 
+        {
+            //echo $user->name . " participated in: " . $trip_schedule->description;
         } else 
         {
-            //echo "Participant already exists in the participants array.";
+            //echo "Unable to find the required records.";
         }
-    } else 
-    {
-        //echo "Trip schedule not found.";
-    }
 
-    $participant_ids = json_decode($trip_schedule->participants);
+        if ($trip_schedule) 
+        {
+            $participants = json_decode($trip_schedule->participants, true);
+        
+            $participants_to_add = 1;
+            if (!in_array($participants_to_add, $participants)) 
+            {
+                // Add the participant to the array.
+                $participants[] = $participants_to_add;
+        
+                $json_participants = json_encode($participants);
+        
+                // Update the participants in the database.
+                DB::table('trip_schedules')->where('id', 1)->update([
+                    'participants' => $json_participants,
+                ]);
+        
+                //echo "Participant added successfully.";
+            } else 
+            {
+                //echo "Participant already exists in the participants array.";
+            }
+        } else 
+        {
+            //echo "Trip schedule not found.";
+        }
 
-    // Fetch participant names from the users table.
-    $participants = DB::table('users')
-        ->whereIn('id', $participant_ids)
-        ->pluck('name');
+        $participant_ids = json_decode($trip_schedule->participants);
 
-    // Display the name of the participants names.
-    foreach ($participants as $participant) 
-    {
-       // echo $participant . '<br>';
-    }
+        // Fetch participant names from the users table.
+        $participants = DB::table('users')
+            ->whereIn('id', $participant_ids)
+            ->pluck('name');
 
+        // Display the name of the participants names.
+        foreach ($participants as $participant) 
+        {
+        // echo $participant . '<br>';
+        }
     ?>
-    
 </body>
 </html>
