@@ -47,14 +47,14 @@
 
         <?php
             $today = now()->toDateString();
-            $nextMonth = now()->addMonth()->toDateString();
+            $next_month = now()->addMonth()->toDateString();
 
-            $tripSchedules = DB::table('trip_schedules')
+            $trip_scheludes = DB::table('trip_schedules')
                                 ->where('start_date', '>=', $today)
-                                ->where('start_date', '<=', $nextMonth)
+                                ->where('start_date', '<=', $next_month)
                                 ->get();
 
-            if ($tripSchedules->isEmpty()) 
+            if ($trip_scheludes->isEmpty()) 
             {
                 echo '<div id="error-message">';
                 echo '<i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(255, 255, 255);"></i><br>';
@@ -65,23 +65,23 @@
             else 
             {
                 echo '<div id="offers-list-container">';
-                foreach ($tripSchedules as $tripSchedule)
+                foreach ($trip_scheludes as $trip_schelude)
                 {
-                    $tripName = $tripSchedule->description;
-                    $participantIds = json_decode($tripSchedule->participants);
-                    $participantCount = count($participantIds);
-                    $remainingSlots = max(0, 8 - $participantCount);
+                    $trip_name = $trip_schelude->description;
+                    $participant_ids = json_decode($trip_schelude->participants);
+                    $participant_count = count($participant_ids);
+                    $remaining_slots = max(0, 8 - $participant_count);
 
                     echo '<div class="trip-offer">';
-                    echo '<h2>' . $tripName . '</h2><hr class="faded-hr" style="width: 60%;"> Participants: <hr class="faded-hr" style="width: 60%;"><br>';
+                    echo '<h2>' . $trip_name . '</h2><hr class="faded-hr" style="width: 60%;"> Participants: <hr class="faded-hr" style="width: 60%;"><br>';
                     echo '<div class="person-container">';
 
-                    for ($i = 0; $i < $participantCount; $i++) 
+                    for ($i = 0; $i < $participant_count; $i++) 
                     {
                         echo '<i class="fa-solid fa-person participant"></i>';
                     }
                     
-                    for ($i = 0; $i < $remainingSlots; $i++) 
+                    for ($i = 0; $i < $remaining_slots; $i++) 
                     {
                         echo '<i class="fa-solid fa-person" style="color: gray;"></i>';
                     }
@@ -92,14 +92,12 @@
                 echo '</div>';
             }
         ?>
-
-
         </div>
 
         <div id="middle-center">
-                <div id="spin-wheel">
-             <div id="spinner">☸</div>
-             </div>
+            <div id="spin-wheel">
+                <div id="spinner">☸</div>
+            </div>
 
             <div id="text-container">
                 <h1>Welcome to Skawo: Your Gateway to Nordic Adventures!</h1>
