@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/8b6addd488.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
@@ -42,29 +43,57 @@
         <div id="middle-content">
             <div id="infodiv">
                 <h5>Our offers right now:</h5>
-                <div id="offers-list"></div>
+                <hr class="faded-hr" style="width: 80%;">
+                <?php
+                    $today = now()->toDateString();
+                    $nextMonth = now()->addMonth()->toDateString();
+
+                    $tripSchedules = DB::table('trip_schedules')
+                        ->where('start_date', '>=', $today)
+                        ->where('start_date', '<=', $nextMonth)
+                        ->get();
+
+                    foreach ($tripSchedules as $tripSchedule) {
+                        $tripName = $tripSchedule->description;
+                        $participantIds = json_decode($tripSchedule->participants);
+                        $participantCount = count($participantIds);
+
+                        echo '<div id="offers-list">';
+                        echo '<hr class="faded-hr" style="width: 50%;">' . $tripName . '<hr class="faded-hr" style="width: 60%;"> Participants: <br><br>';
+                        echo '<div id="person-container">';
+                        for ($i = 0; $i < $participantCount; $i++) {
+                            echo '<i class="fa-solid fa-person"></i>';
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                ?>
+
             </div>
         <div id="middle-center">
             <div id="text-container">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...
-            </p>
+                <h1>Welcome to Skawo: Your Gateway to Nordic Adventures!</h1>
+                <hr class="faded-hr" style="width: 80%;">
+                <p>
+                    Are you ready to embark on a journey of discovery through the stunning landscapes and vibrant cultures of Scandinavia? Look no further than Skawo - your digital passport to a world of Nordic wonders!
+                </p>
+
+                <p>
+                    Skawo is more than just a web app; it's an invitation to immerse yourself in the beauty and magic that Scandinavia has to offer. From the majestic fjords of Norway to the picturesque forests of Sweden, and the fascinating history of Denmark - Skawo is here to guide you on an unforgettable adventure.
+                </p>
+
+                <h2>Why Choose Skawo?</h2>
+
+                <ul>
+                <li>Explore the best destinations across Scandinavia with ease and convenience.</li>
+                <li>Discover hidden gems and lesser-known spots recommended by fellow adventurers.</li>
+                <li>Access expert travel tips and curated itineraries to make the most of your trip.</li>
+                <li>Connect with a community of like-minded explorers and share your experiences.</li>
+                </ul>
+
+                <p>
+                    Join us at Skawo and unlock a world of breathtaking landscapes, rich history, and the warm hospitality of the Nordic region. Your adventure begins here - let's embrace the beauty of Scandinavia together!
+                </p>
             </div>
             <button id="mid-but">
                 <p id="mid-but-txt">Register</p>
@@ -113,6 +142,7 @@
     </script>
 
     <?php
+    /*
         $participants = [1, 2, 3, 4];
         $json_participants = json_encode($participants);
 
@@ -196,6 +226,7 @@
         {
         // echo $participant . '<br>';
         }
+        */  
     ?>
 </body>
 </html>
