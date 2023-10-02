@@ -123,21 +123,23 @@
     </div>
 
     <script>
-        let li_els = document.querySelectorAll('ul li');
+        let slider = document.getElementById('slider');
+        let li_els = slider.querySelectorAll('li');
         let index = 0;
 
-        function show(increase) {
-            index = index + increase;
-            index = Math.min(Math.max(index, 0), li_els.length - 1);
-            li_els[index].scrollIntoView({
+        function show(increase) 
+        {
+        index = index + increase;
+        index = Math.min(Math.max(index, 0), li_els.length - 1);
+        li_els[index].scrollIntoView({
             behavior: 'smooth',
             block: 'center',
             inline: 'nearest'
-            });
+        });
         }
-
+    
         window.addEventListener("load", (event) => {
-        show(+1);
+            show(1);
         });
     </script>
 
