@@ -44,6 +44,7 @@ body, html {
   padding: 0 25px;
   transition: background 0.3s;
   border-radius: 5px;
+  cursor: pointer;
   height: 50px;
 }
 
@@ -55,6 +56,7 @@ body, html {
 .nav-item:nth-child(5) 
 {
   background: linear-gradient(rgba(197, 210, 230, 0.3), rgba(105, 103, 103, 0.1)) !important;
+  cursor: auto;
 }
 
 .header 
@@ -439,7 +441,7 @@ body, html {
 .animated-text 
 {
   font-size: 24px;
-  animation: blink 1s infinite;
+  animation: blink 3s infinite;
 }
 
 @keyframes blink 
@@ -488,7 +490,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 31px;
+  margin-top: 127px;
   padding: 0 20px;
   flex-shrink: 0;
   box-sizing: border-box;

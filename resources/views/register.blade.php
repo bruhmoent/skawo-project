@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Skawo - Sign In</title>
+    <title>Skawo - Register</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('public_css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
@@ -26,14 +26,15 @@
     <div class="container">
         <div class="nav-item" onclick="redirect_to_route('about')">ABOUT</div>
         <div class="nav-item" onclick="redirect_to_route('start_booking')">START BOOKING</div>
+        <div class="nav-item" onclick="redirect_to_route('sign_in')">SIGN IN</div>
         <div class="nav-item" onclick="redirect_to_route('sign_out')">SIGN OUT</div>
     </div>
 
     <div class="main-container">
         <div class="container-form">
-            <h2>Sign In</h2>
+            <h2>Register</h2>
             <hr class="faded-hr" style="width: 80%;">
-            <form method="POST" action="{{ route('sign_in.route') }}">
+            <form method="POST" action="{{ route('register.route') }}">
                 @csrf
 
                 <div class="form-group">
@@ -42,12 +43,22 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="surname">Surname</label>
+                    <input id="surname" type="text" class="form-control" name="surname" required autocomplete="surname" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus>
+                </div>
+
+                <div class="form-group">
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
                 </div>
 
                 <button type="submit" class="btn btn-primary-form">
-                    Sign In
+                    Register
                 </button>
             </form>
 

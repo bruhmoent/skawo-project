@@ -16,6 +16,7 @@
 
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
+
 </head>
 
 <body>
@@ -31,11 +32,11 @@
     </div>
 
     <div class="container">
-        <div class="nav-item">ABOUT</div>
-        <div class="nav-item">START BOOKING</div>
-        <div class="nav-item">SIGN IN</div>
-        <div class="nav-item">SIGN OUT</div>
-        <div class="nav-item">Welcome, $user!</div>
+        <div class="nav-item" onclick="redirect_to_route('about')">ABOUT</div>
+        <div class="nav-item" onclick="redirect_to_route('start_booking')">START BOOKING</div>
+        <div class="nav-item" onclick="redirect_to_route('sign_in')">SIGN IN</div>
+        <div class="nav-item" onclick="redirect_to_route('sign_out')">SIGN OUT</div>
+        <div class="nav-item">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
     </div>
     
     <div id="middle">
@@ -57,9 +58,9 @@
             if ($trip_scheludes->isEmpty()) 
             {
                 echo '<div id="error-message">';
-                echo '<i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(255, 255, 255);"></i><br>';
+                echo '<div class="animated-text"><i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(255, 255, 255);"></i></div>';
                 echo '<hr class="faded-hr" style="width: 50%;">';
-                echo '<div class="animated-text">Sorry! There aren\'t currently any active trips.</div>';
+                echo 'Sorry! There aren\'t currently any active trips.';
                 echo '</div>';
             } 
             else 
@@ -124,7 +125,7 @@
                 </p>
             </div>
             <button id="mid-but">
-                <p id="mid-but-txt">Register</p>
+                <div id="mid-but-text" onclick="redirect_to_route('register')">Register</div>
             </button>
         </div>
     </div>
@@ -258,5 +259,39 @@
         }
         */  
     ?>
+
+    <script>
+        function redirect_to_route(route) 
+        {
+            let redirect_url = '';
+
+            switch (route) 
+            {
+                case 'about':
+                    redirect_url = "{{ route('about.route') }}";
+                    break;
+                case 'start_booking':
+                    redirect_url = "{{ route('start.booking.route') }}";
+                    break;
+                case 'sign_in':
+                    redirect_url = "{{ route('sign.in.route') }}";
+                    break;
+                case 'sign_out':
+                    redirect_url = "{{ route('sign.out.route') }}";
+                    break;
+                case 'register':
+                    redirect_url = "{{ route('register.route') }}";
+                    break;
+                default:
+                    break;
+            }
+
+            if (redirect_url) 
+            {
+                window.location.href = redirect_url;
+            }
+        }
+    </script>
+
 </body>
 </html>

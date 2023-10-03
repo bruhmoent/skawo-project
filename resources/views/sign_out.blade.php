@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Icon -->
-    <link rel="icon" href="{{ asset('Skawo.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
 
 <body>
