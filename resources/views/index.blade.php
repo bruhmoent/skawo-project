@@ -12,15 +12,15 @@
     <script src="https://kit.fontawesome.com/8b6addd488.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('public_css/header.css') }}">
 
     <!-- Icon -->
-    <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ secure_asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
 
 <body>
     <div class="header">
-    <img src="{{ asset('mirrors/Skawo-Glass.png') }}" alt="Logo" class="logo-img">
+    <img src="{{ secure_asset('mirrors/Skawo-Glass.png') }}" alt="Logo" class="logo-img">
         <div class="overlay">
         </div>
         <div class="text-section">
