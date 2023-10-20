@@ -21,10 +21,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::post('/enrollUser', 'App\Http\Controllers\EnrollmentController@enrollUser');
+
 Route::get('/about', function (Request $request) {
     return view('index');
 })->name('about.route');
-
 
 Route::get('/start_booking', function () {
     return view('start_booking');
@@ -34,8 +35,9 @@ Route::get('/sign_in', function () {
     return view('sign_in');
 })->name('sign.in.route');
 
-Route::get('/sign_out', function () {
-    // Revoke the user's personal access tokens.
+Route::get('/sign_out', function (\Illuminate\Http\Request $request) {
+    // Clear the username parameter.
+    $request->merge(['username' => null]);
     $user = auth()->user();
     if ($user) {
         $user->tokens()->delete(); // Revokes all tokens associated with the user.
@@ -44,7 +46,6 @@ Route::get('/sign_out', function () {
     Cookie::queue(Cookie::forget('username'));
     return view('index')->with('reload', true);
 })->name('sign.out.route');
-
 
 Route::get('/register', function () {
     return view('register');

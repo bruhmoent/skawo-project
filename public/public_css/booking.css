@@ -1,0 +1,79 @@
+body, div, h2, p, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'figtree', sans-serif;
+    background-color: #f0f0f0;
+}
+
+#finland-map
+{
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6b6b6b #f1f1f1;
+    -webkit-overflow-scrolling: touch;
+    max-height: 250px;
+}
+
+#map {
+    width: 100%;
+    border: 1px groove rgba(50, 64, 71, 0.7);
+}
+
+#trip-details-container {
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.trip-map {
+    margin-top: 20px;
+    height: 200px;
+    background-color: #ececec;
+    border: 1px solid #ccc;
+}
+
+.button-enroll 
+{
+  background: linear-gradient(rgba(105, 148, 211, 0.9), rgba(50, 64, 71, 0.8)) !important;
+  color: white;
+  line-height: 50px;
+  flex: 1;
+  text-align: center;
+  margin: 5px;
+  margin-top: 10px;
+  padding: 0 25px;
+  transition: background 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+}
+
+.button-enroll:hover
+{
+  background: rgba(165, 165, 165, 0.8) !important;
+}
+
+.leaflet-marker-icon:hover {
+    opacity: 0.7;
+}
+
+.leaflet-marker-icon.selected {
+    filter: brightness(1.2);
+}
+
+.leaflet-marker-icon.clicked {
+    filter: hue-rotate(45deg);
+}

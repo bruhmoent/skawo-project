@@ -16,7 +16,6 @@
 
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
-
 </head>
 
 <body>
@@ -69,11 +68,14 @@
                 foreach ($trip_scheludes as $trip_schelude)
                 {
                     $trip_name = $trip_schelude->description;
+                    $trip_country = $trip_schelude->country;
                     $participant_ids = json_decode($trip_schelude->participants);
                     $participant_count = count($participant_ids);
                     $remaining_slots = max(0, 8 - $participant_count);
 
                     echo '<div class="trip-offer">';
+                    echo '<div style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 25px; letter-spacing:2px; padding: 10px; width: 150px; text-align: center; font-size: 14px; font-weight: bold; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);">
+                    ' . $trip_country . ' </div>';
                     echo '<h2>' . $trip_name . '</h2><hr class="faded-hr" style="width: 60%;"> Participants: <hr class="faded-hr" style="width: 60%;"><br>';
                     echo '<div class="person-container">';
 
@@ -171,94 +173,6 @@
             show(1);
         });
     </script>
-
-    <?php
-    /*
-        $participants = [1, 2, 3, 4];
-        $json_participants = json_encode($participants);
-
-        // Check if the trip schedule already exists.
-        $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
-
-        if (!$trip_schedule) 
-        {
-            DB::table('trip_schedules')->insert([
-                'participants' => $json_participants,
-                'start_date' => '2023-09-21',
-                'end_date' => '2023-09-28',
-                'description' => 'A trip to the mountains',
-                'latitude' => 45.12345678,
-                'longitude' => -78.12345678,
-            ]);
-
-            $trip_schedule = DB::table('trip_schedules')->where('id', 1)->first();
-        }
-
-        // Check if the user already exists.
-        $user = DB::table('users')->where('username', 'john_doe')->first();
-
-        if (!$user) 
-        {
-            DB::table('users')->insert([
-                'username' => 'john_doe',
-                'name' => 'John',
-                'surname' => 'Doe',
-                'password' => bcrypt('password123'),
-                'trip_id' => $trip_schedule->id,
-            ]);
-
-            $user = DB::table('users')->where('username', 'john_doe')->first();
-        }
-
-        if ($trip_schedule && $user) 
-        {
-            //echo $user->name . " participated in: " . $trip_schedule->description;
-        } else 
-        {
-            //echo "Unable to find the required records.";
-        }
-
-        if ($trip_schedule) 
-        {
-            $participants = json_decode($trip_schedule->participants, true);
-        
-            $participants_to_add = 1;
-            if (!in_array($participants_to_add, $participants)) 
-            {
-                // Add the participant to the array.
-                $participants[] = $participants_to_add;
-        
-                $json_participants = json_encode($participants);
-        
-                // Update the participants in the database.
-                DB::table('trip_schedules')->where('id', 1)->update([
-                    'participants' => $json_participants,
-                ]);
-        
-                //echo "Participant added successfully.";
-            } else 
-            {
-                //echo "Participant already exists in the participants array.";
-            }
-        } else 
-        {
-            //echo "Trip schedule not found.";
-        }
-
-        $participant_ids = json_decode($trip_schedule->participants);
-
-        // Fetch participant names from the users table.
-        $participants = DB::table('users')
-            ->whereIn('id', $participant_ids)
-            ->pluck('name');
-
-        // Display the name of the participants names.
-        foreach ($participants as $participant) 
-        {
-        // echo $participant . '<br>';
-        }
-        */  
-    ?>
 
     <script>
         function redirect_to_route(route) 

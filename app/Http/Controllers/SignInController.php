@@ -20,6 +20,10 @@ class SignInController extends Controller
             return redirect()->route('sign_in.route')->with('status', 'error')->with('message', 'Invalid username or password.');
         }
 
+        if (isset($_COOKIE['username'])) {
+            return redirect()->route('sign_in.route')->with('status', 'error')->with('message', 'Already logged in.');
+        }
+
         if (Hash::check($password, $user->password)) {
             // Create a personal access token for the user.
             $token = $user->createToken('user-access-token');
@@ -34,7 +38,8 @@ class SignInController extends Controller
                 ->with('status', 'success')
                 ->with('message', 'Login successful!')
                 ->with('username', $username);
+        } else {
+            return redirect()->route('sign_in.route')->with('status', 'error')->with('message', 'Invalid username or password.');
         }
     }
 }
-

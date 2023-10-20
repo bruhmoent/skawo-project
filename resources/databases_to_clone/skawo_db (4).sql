@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 03, 2023 at 11:14 PM
+-- Generation Time: Paź 20, 2023 at 03:10 AM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -98,33 +98,20 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 3, 'user-access-token', '9514258c46f57f2bb3948862467e7ed8f51ba80d047f07c10cd1e8dc190773ac', '[\"*\"]', NULL, NULL, '2023-10-03 13:24:14', '2023-10-03 13:24:14'),
-(2, 'App\\Models\\User', 3, 'user-access-token', 'fe9a1b8370a0f70401b4d81949ab06b028c1f38f2516145d04d0fb66bb64f7ec', '[\"*\"]', NULL, NULL, '2023-10-03 13:24:20', '2023-10-03 13:24:20'),
-(3, 'App\\Models\\User', 3, 'user-access-token', 'e663c81639badb4b41d615bd8ccab841f0e8c8f5e871bcbadc4371b85d309027', '[\"*\"]', NULL, NULL, '2023-10-03 13:26:38', '2023-10-03 13:26:38'),
-(4, 'App\\Models\\User', 3, 'user-access-token', 'f8b7293e3db7b537a21187dfe1a1b61470fb272427349815ec63c27ecbb58014', '[\"*\"]', NULL, NULL, '2023-10-03 13:28:44', '2023-10-03 13:28:44'),
-(5, 'App\\Models\\User', 3, 'user-access-token', 'b8041bd77f7372f6585e744e29f68266a764240c44bee6dd63afaaebf0b34e84', '[\"*\"]', NULL, NULL, '2023-10-03 13:33:54', '2023-10-03 13:33:54'),
-(6, 'App\\Models\\User', 3, 'user-access-token', '36035158fba0efb7729a6f90407f531ad352fa3aede8d8495e0ff4c6b4113b92', '[\"*\"]', NULL, NULL, '2023-10-03 13:34:53', '2023-10-03 13:34:53'),
-(7, 'App\\Models\\User', 3, 'user-access-token', '6380a0cff1e52b9eea3c091870f9631dee4867e8d3d7f999311e409e156b36cc', '[\"*\"]', NULL, NULL, '2023-10-03 13:38:38', '2023-10-03 13:38:38'),
-(8, 'App\\Models\\User', 3, 'user-access-token', 'b3c9fc537a821fe57609981f97a0be713975efb462fdd94bd986592223011e99', '[\"*\"]', NULL, NULL, '2023-10-03 13:46:46', '2023-10-03 13:46:46'),
-(9, 'App\\Models\\User', 3, 'user-access-token', 'd5da8129d79e0f0a8daf6923193df09406f3fc0c18b4c447f403c9de8cd71c15', '[\"*\"]', NULL, NULL, '2023-10-03 13:47:56', '2023-10-03 13:47:56'),
-(10, 'App\\Models\\User', 3, 'user-access-token', '7150737d543b6f1064f2a1c9078ac983ee5b13f610bcd68e6573010351dacb50', '[\"*\"]', NULL, NULL, '2023-10-03 13:50:03', '2023-10-03 13:50:03'),
-(11, 'App\\Models\\User', 3, 'user-access-token', 'e1de53fd1c5711cdc7d84ccd0bda2394f85b3acadde363b1f41e8497301da3dd', '[\"*\"]', NULL, NULL, '2023-10-03 13:50:11', '2023-10-03 13:50:11'),
-(12, 'App\\Models\\User', 3, 'user-access-token', '63053dfa7c1a12da2d4fe1c548521fd798aa48c2696a7543031b0d8694d05437', '[\"*\"]', NULL, NULL, '2023-10-03 13:50:41', '2023-10-03 13:50:41'),
-(13, 'App\\Models\\User', 3, 'user-access-token', '5afac4c8c3474cea42d859d813c0dd1d49b6308ed33935a6ad8236c509132f54', '[\"*\"]', NULL, NULL, '2023-10-03 13:50:59', '2023-10-03 13:50:59'),
-(14, 'App\\Models\\User', 3, 'user-access-token', 'f1fd3aedd313fe27a58e51bedde7d91e0a0c9f70ac9c8a44c71fc3562f45cd53', '[\"*\"]', NULL, NULL, '2023-10-03 13:52:06', '2023-10-03 13:52:06'),
-(15, 'App\\Models\\User', 3, 'user-access-token', '0904f95250d2a986c433383a77df7b465691f0f5156bae513386614dbe648246', '[\"*\"]', NULL, NULL, '2023-10-03 13:52:17', '2023-10-03 13:52:17'),
-(16, 'App\\Models\\User', 3, 'user-access-token', 'ab9eb75f8e6d80674bf59e25c3d7f1ad673be7ad869e118550f7328899e7f343', '[\"*\"]', NULL, NULL, '2023-10-03 13:53:41', '2023-10-03 13:53:41'),
-(17, 'App\\Models\\User', 3, 'user-access-token', 'bce0f73406b81b7009c1d995478ba1a59c90ab5a19641fbfddaf717c2a7cc8ee', '[\"*\"]', NULL, NULL, '2023-10-03 13:54:42', '2023-10-03 13:54:42'),
-(18, 'App\\Models\\User', 3, 'user-access-token', 'c60cc927e5428779c569bd84be74dd2b1dfe1027b80ba30a6d95c39092c6d888', '[\"*\"]', NULL, NULL, '2023-10-03 13:58:42', '2023-10-03 13:58:42'),
-(19, 'App\\Models\\User', 3, 'user-access-token', '0b0be1401af4a02ac143e0cb34d7a746c261ade18dcea1fa5ea689ecbea3c3d1', '[\"*\"]', NULL, NULL, '2023-10-03 13:58:49', '2023-10-03 13:58:49'),
-(20, 'App\\Models\\User', 3, 'user-access-token', '102c074c3d44d4b3cb087f8815b03f299737968464639209c442832d802b77f8', '[\"*\"]', NULL, NULL, '2023-10-03 14:01:57', '2023-10-03 14:01:57'),
 (21, 'App\\Models\\User', 6, 'user-access-token', 'f73c4f4c3cfd970a6504f234139cffbde3d14190498281b5044d01002df497d4', '[\"*\"]', NULL, NULL, '2023-10-03 14:06:41', '2023-10-03 14:06:41'),
 (22, 'App\\Models\\User', 6, 'user-access-token', '22b4575115d5f0f59c98575822c9d5c8a84b84f6b68de978a69e538ddace6e25', '[\"*\"]', NULL, NULL, '2023-10-03 14:08:17', '2023-10-03 14:08:17'),
 (23, 'App\\Models\\User', 6, 'user-access-token', '1d034f17039a796fc1038857e9913b875b25d98c285ad371b49f1b3a7fe76fac', '[\"*\"]', NULL, NULL, '2023-10-03 14:08:53', '2023-10-03 14:08:53'),
 (24, 'App\\Models\\User', 6, 'user-access-token', '8997c77491f5a68bde6e4f3b10c21ed7dfe5dcc3aa0b406832e2188bcb3c691b', '[\"*\"]', NULL, NULL, '2023-10-03 14:10:34', '2023-10-03 14:10:34'),
 (25, 'App\\Models\\User', 7, 'user-access-token', 'ec27fc0088c7856dab41d790c5ca6fbe90031e78be768c488dfc6fbc06742506', '[\"*\"]', NULL, NULL, '2023-10-03 14:10:51', '2023-10-03 14:10:51'),
-(26, 'App\\Models\\User', 3, 'user-access-token', '97e1922826f5681e5c510b7eb2fd7ec92fe2611ffa583207b826be7fa81e6d97', '[\"*\"]', NULL, NULL, '2023-10-03 14:12:37', '2023-10-03 14:12:37'),
-(27, 'App\\Models\\User', 8, 'user-access-token', '742373c6018a53b619ac5e4d8e347c3889dbd84b372dbe220effbcc0987c54bc', '[\"*\"]', NULL, NULL, '2023-10-03 18:38:16', '2023-10-03 18:38:16');
+(27, 'App\\Models\\User', 8, 'user-access-token', '742373c6018a53b619ac5e4d8e347c3889dbd84b372dbe220effbcc0987c54bc', '[\"*\"]', NULL, NULL, '2023-10-03 18:38:16', '2023-10-03 18:38:16'),
+(32, 'App\\Models\\User', 3, 'user-access-token', 'a5c64af2d026f4464133dc29e41cb6a0384ccd15bb9d9e2b22b188d36a138cab', '[\"*\"]', NULL, NULL, '2023-10-19 21:13:41', '2023-10-19 21:13:41'),
+(33, 'App\\Models\\User', 6, 'user-access-token', '91eae5656b9e3324da114462939d22dd3964b1de5eafa3063c1aa3948ce9d935', '[\"*\"]', NULL, NULL, '2023-10-19 22:26:47', '2023-10-19 22:26:47'),
+(34, 'App\\Models\\User', 9, 'user-access-token', '67593099a5f63b69aeac28acf08e87625df44171d118dea50ae04c27f725654d', '[\"*\"]', NULL, NULL, '2023-10-19 22:27:47', '2023-10-19 22:27:47'),
+(35, 'App\\Models\\User', 3, 'user-access-token', 'c01e6d139a3842cc616efb1ea1c621ca187904593c23dd4affe86649291d3b7b', '[\"*\"]', NULL, NULL, '2023-10-19 22:28:03', '2023-10-19 22:28:03'),
+(36, 'App\\Models\\User', 9, 'user-access-token', '967edd0220af8c2bc1e696b8a581e56e78db217561176ad0ea3c1de919072ca7', '[\"*\"]', NULL, NULL, '2023-10-19 22:35:28', '2023-10-19 22:35:28'),
+(37, 'App\\Models\\User', 3, 'user-access-token', 'b26f8da400ce614a3c221536b5875dbbe2dc630c25c7e5b95ccb5372d03774c1', '[\"*\"]', NULL, NULL, '2023-10-19 22:43:53', '2023-10-19 22:43:53'),
+(38, 'App\\Models\\User', 9, 'user-access-token', '33f397551f5ffabe8bacf5a97c639164c4697f917fdd5311c515e7bcb001ad6d', '[\"*\"]', NULL, NULL, '2023-10-19 22:46:12', '2023-10-19 22:46:12'),
+(39, 'App\\Models\\User', 9, 'user-access-token', '8d0b6202c2bfe18a9dfcf60747864f84c5df9a69fb57741cac540322286111dc', '[\"*\"]', NULL, NULL, '2023-10-19 23:09:35', '2023-10-19 23:09:35');
 
 -- --------------------------------------------------------
 
@@ -141,54 +128,55 @@ CREATE TABLE `trip_schedules` (
   `latitude` decimal(10,8) NOT NULL,
   `longitude` decimal(11,8) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `country` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `trip_schedules`
 --
 
-INSERT INTO `trip_schedules` (`id`, `participants`, `start_date`, `end_date`, `description`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES
-(1, '[1]', '2023-10-02', '2023-10-05', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(2, '[1,2,3,4]', '2023-06-02', '2023-08-25', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(3, '[1,2,3,4]', '2023-10-02', '2023-10-19', 'IKEA History Trip', 45.12345678, -78.12345678, NULL, NULL),
-(4, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(5, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(6, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(7, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(8, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(9, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(10, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(11, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(12, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(13, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(14, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(15, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(16, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(17, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(18, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(19, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(20, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(21, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(22, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(23, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(24, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(25, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(26, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(27, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(28, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(29, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(30, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(31, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(32, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(33, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(34, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(35, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(36, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(37, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(38, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(39, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL),
-(40, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL);
+INSERT INTO `trip_schedules` (`id`, `participants`, `start_date`, `end_date`, `description`, `latitude`, `longitude`, `created_at`, `updated_at`, `country`) VALUES
+(1, '[3]', '2023-10-02', '2023-10-05', 'Hi', 62.43936700, 10.35206400, NULL, NULL, NULL),
+(2, '[1,3,9]', '2023-10-20', '2023-10-22', 'A trip to the mountains', 62.43936700, 10.35206400, NULL, NULL, 'Finland'),
+(3, '[1,2,3,4,2,5,6,7]', '2023-10-20', '2023-10-25', 'IKEA History Trip', 65.93896700, 20.76831200, NULL, NULL, 'Sweden'),
+(4, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(5, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(6, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(7, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(8, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(9, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(10, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(11, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(12, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(13, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(14, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(15, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(16, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(17, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(18, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(19, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(20, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(21, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(22, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(23, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(24, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(25, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(26, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(27, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(28, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(29, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(30, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(31, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(32, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(33, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(34, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(35, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(36, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(37, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(38, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(39, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
+(40, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +207,8 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `trip_id`,
 (5, '213', '123', '123', '$2y$10$kJPQOxkGpepwrI06FULcFOCTYKtI5eEAQd06Oq2oKO./BskZelIE6', NULL, NULL, NULL),
 (6, 'bob', '1', '1', '$2y$10$HZmzl0CJVAfHPkJ2mXWSluQsrMEX2qYa5NKLmqvG3q4Yiz.fsEuvi', NULL, NULL, NULL),
 (7, 'bobas', '1', '1', '$2y$10$L3RDnT7ZE2SlZby9GMGYI.OAw/qklU6HhBKZHCPLRI2xUWgRcrFoa', NULL, NULL, NULL),
-(8, 'bbb', 'bbb', 'bbb', '$2y$10$nDlz1fRVIGbLGtSR4m.33uSNfrQSc0c7Z2R31Pg8R7NdzdiwyASfW', NULL, NULL, NULL);
+(8, 'bbb', 'bbb', 'bbb', '$2y$10$nDlz1fRVIGbLGtSR4m.33uSNfrQSc0c7Z2R31Pg8R7NdzdiwyASfW', NULL, NULL, NULL),
+(9, 'hi', 'g', 'g', '$2y$10$y.4JQ5AIhjoEUcBVKsIYKuNwa9wdO10IQcyZVcuujkTP.l4k2atay', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -338,7 +327,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `trip_schedules`
@@ -350,7 +339,7 @@ ALTER TABLE `trip_schedules`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `_workflow`
