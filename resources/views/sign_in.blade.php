@@ -3,10 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
     <title>Skawo - Sign In</title>
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('public_css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
+    
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
