@@ -21,6 +21,7 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('scripts/main.js') }}"></script>
 
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
@@ -111,14 +112,14 @@
                     @endif
 
                         <h3 style="margin-top: 35px;">${clickedTrip.description}</h3>
-                        <hr style="width: 60%; background: linear-gradient(to left, transparent, black, transparent;">
+                        <hr  style="width: 60%;" class="faded-hr">
                         <p>Start Date: ${clickedTrip.start_date}</p>
                         <p>End Date: ${clickedTrip.end_date}
-                        <hr style="width: 30%; background: linear-gradient(to left, transparent, black, transparent;">
+                        <hr  style="width: 60%;" class="faded-hr">
                         <div class="schema-container">
                         <p>End Date: ${clickedTrip.trip_schema}
                         </div>
-                        <hr style="width: 30%; background: linear-gradient(to left, transparent, black, transparent;">
+                        <hr  style="width: 30%;" class="faded-hr">
                         
                         @if(request()->username && request()->username !== 'Guest')
                             <form id="enrollForm" action="/enrollUser" method="POST">
@@ -132,7 +133,7 @@
                                 @endif
                             </form>
                         @else
-                     <div style="margin-top: 5px;" class="animated-text"><i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(0, 0, 0);"></i> <p>Please sign in to enroll.</p></div>
+                     <div style="margin-top: 5px;" class="animated-text"><i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(255, 255, 255);"></i> <p>Please sign in to enroll.</p><br></div>
                     @endif
                    
                     </div>
