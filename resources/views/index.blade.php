@@ -20,7 +20,7 @@
 
 <body>
     <div class="header">
-    <img src="{{ asset('mirrors/Skawo-Glass.png') }}" alt="Logo" class="logo-img">
+    <img src="{{ secure_asset('public/mirrors/Skawo-Glass.png') }}" alt="Logo" class="logo-img">
         <div class="overlay">
         </div>
         <div class="text-section">
