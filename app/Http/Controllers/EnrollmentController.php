@@ -26,12 +26,15 @@ class EnrollmentController extends Controller
                 $participants = json_decode($tripSchedule->participants, true);
     
                 if (is_array($participants) && in_array($userId, $participants)) {
-                    return 'User is already enrolled.';
+                    return redirect()->route('start.booking.route')
+                    ->with('status', 'error')
+                    ->with('message', 'User is already enrolled.');
                 }
     
                 if (count($participants) >= 8) {
-                    // Maximum participants limit reached.
-                    return 'Maximum participants limit reached.';
+                    return redirect()->route('start.booking.route')
+                    ->with('status', 'error')
+                    ->with('message', 'Maximum participants limit reached.');
                 }
     
                 // Add the user to the participants array.
@@ -41,10 +44,47 @@ class EnrollmentController extends Controller
                     ->where('id', $tripId)
                     ->update(['participants' => json_encode($participants)]);
     
-                return 'Enrollment successful';
+                return redirect()->route('start.booking.route')
+                    ->with('status', 'success')
+                    ->with('message', 'Enrollment successful!');
             }
         }
-    
-        return 'User not authenticated or enrollment failed.';
+        return redirect()->route('start.booking.route')
+        ->with('status', 'error')
+        ->with('message', 'User not authenticated or enrollment failed.');
+    }
+
+    public function cancelEnrollment(Request $request) {
+        $username = $request->input('username');
+        $tripId = $request->input('tripId');
+
+        $user = DB::table('users')->where('username', $username)->first();
+
+        if ($user) {
+            $userId = $user->id;
+
+            $tripSchedule = DB::table('trip_schedules')->find($tripId);
+
+            if ($tripSchedule) {
+                $participants = json_decode($tripSchedule->participants, true);
+
+                if (is_array($participants) && in_array($userId, $participants)) {
+                    // Remove the user from the participants array.
+                    $participants = array_diff($participants, [$userId]);
+
+                    DB::table('trip_schedules')
+                        ->where('id', $tripId)
+                        ->update(['participants' => json_encode(array_values($participants))]);
+
+                    return redirect()->route('start.booking.route')
+                        ->with('status', 'success')
+                        ->with('message', 'Enrollment canceled successfully.');
+                }
+            }
+        }
+
+        return redirect()->route('start.booking.route')
+            ->with('status', 'error')
+            ->with('message', 'Unable to cancel enrollment.');
     }
 }

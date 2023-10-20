@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::post('/enrollUser', 'App\Http\Controllers\EnrollmentController@enrollUser');
 
+Route::post('/cancelEnrollment', 'App\Http\Controllers\EnrollmentController@cancelEnrollment');
+
 Route::get('/about', function (Request $request) {
     return view('index');
 })->name('about.route');

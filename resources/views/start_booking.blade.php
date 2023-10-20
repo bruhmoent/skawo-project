@@ -50,6 +50,14 @@
 <div id="trip-details-container">
     <h2>Selected Trip:</h2>
     <div class="trip-map" id="finland-map">
+    @if (session('status') && session('message') != 'Enrollment canceled successfully.' )
+        <div class="{{ session('status') }}-message">
+            {{ session('message') }}
+        @if (session('status') && session('message') != 'Enrollment successful!')
+            <p>ⓘ Click on a trip to cancel enrollment.</p>
+        @endif
+        </div>
+    @endif
     </div>
 </div>
 
@@ -89,24 +97,44 @@
 
             tripMarker.on('click', (function(clickedTrip) {
                 return function() {
-                    
-
                     $('#finland-map').html(`
+                    @if (session('status') == 'error' && session('message') == 'User is already enrolled.')
+                    <div class="{{ session('status') }}-message">
+                        {{ session('message') }}
+                        <form id="cancelEnrollmentForm" action="/cancelEnrollment" method="POST">
+                            @csrf
+                            <input type="hidden" name="tripId" value="${clickedTrip.id}">
+                            <input type="hidden" name="username" value="{{ request()->username }}">
+                            <button class="button-cancel-enroll" type="submit">Cancel Enrollment</button>
+                        </form>
+                    @endif
+
                         <h3 style="margin-top: 35px;">${clickedTrip.description}</h3>
                         <hr style="width: 60%; background: linear-gradient(to left, transparent, black, transparent;">
                         <p>Start Date: ${clickedTrip.start_date}</p>
                         <p>End Date: ${clickedTrip.end_date}
+                        <hr style="width: 30%; background: linear-gradient(to left, transparent, black, transparent;">
+                        <div class="schema-container">
+                        <p>End Date: ${clickedTrip.trip_schema}
+                        </div>
+                        <hr style="width: 30%; background: linear-gradient(to left, transparent, black, transparent;">
                         
                         @if(request()->username && request()->username !== 'Guest')
                             <form id="enrollForm" action="/enrollUser" method="POST">
                                 @csrf
                                 <input type="hidden" name="tripId" id="tripIdInput" value="${clickedTrip.id}">
                                 <input type="hidden" name="username" value="{{ request()->username }}">
-                                <button class="button-enroll" type="submit">Enroll</button>
+                                @if (session('status') == 'error' && session('message') == 'User is already enrolled.')
+                                    <!-- Do not display the enroll button -->
+                                @else
+                                    <button class="button-enroll" type="submit">Enroll</button>
+                                @endif
                             </form>
                         @else
                      <div style="margin-top: 5px;" class="animated-text"><i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(0, 0, 0);"></i> <p>Please sign in to enroll.</p></div>
-                        @endif
+                    @endif
+                   
+                    </div>
                     `);
                 };
             })(trip));
@@ -147,7 +175,7 @@
                 window.location.href = redirect_url;
             }
         }
-    </script>
+</script>
 
 </body>
 </html>
