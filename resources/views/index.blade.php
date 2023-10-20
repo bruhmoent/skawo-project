@@ -12,10 +12,10 @@
     <script src="https://kit.fontawesome.com/8b6addd488.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('public_css/header.css') }}">
 
     <!-- Icon -->
-    <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ secure_asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
 
 <body>
