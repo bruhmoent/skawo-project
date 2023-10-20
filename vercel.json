@@ -1,8 +1,10 @@
 {
     "version": 2,
     "builds": [],
-    "routes": [
-    ],
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+    }],
     "env": {
       "APP_ENV": "production",
       "APP_DEBUG": "true",
