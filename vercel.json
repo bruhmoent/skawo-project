@@ -2,10 +2,6 @@
     "version": 2,
     "builds": [],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/resources/views/index.blade.php"
-      }
     ],
     "env": {
       "APP_ENV": "production",
