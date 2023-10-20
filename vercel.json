@@ -4,7 +4,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/public/"
+        "dest": "/resources/views/index.blade.php"
       }
     ],
     "env": {
