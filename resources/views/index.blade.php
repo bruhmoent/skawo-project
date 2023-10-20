@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/8b6addd488.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ secure_asset('public/public_css/header.css') }}">
+    <link rel="stylesheet" href="https://skawo-project.vercel.app/public/public_css/header.css">
 
     <!-- Icon -->
     <link rel="icon" href="{{ secure_asset('public/Skawo-Glass.ico') }}" type="image/x-icon">
