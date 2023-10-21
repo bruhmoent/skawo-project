@@ -40,10 +40,10 @@
     </div>
 
     <div id="middle">
-        <h1 id="text-middle">What's our mission?</h1>
+        <h1 id="text-middle">Welcome to Skawo!</h1>
         <div id="middle-content">
         <div id="infodiv">
-        <h5>Our offers right now:</h5>
+        <h5 style="font-size: 24px;">Happening now:</h5>
         <hr class="faded-hr" style="width: 80%;">
 
         <?php
@@ -104,7 +104,7 @@
             </div>
 
             <div id="text-container">
-                <h1>Welcome to Skawo: Your Gateway to Nordic Adventures!</h1>
+                <h1>Your Gateway to Nordic Adventures!</h1>
                 <hr class="faded-hr" style="width: 80%;">
                 <p>
                     Are you ready to embark on a journey of discovery through the stunning landscapes and vibrant cultures of Scandinavia? Look no further than Skawo - your digital passport to a world of Nordic wonders!
@@ -133,8 +133,11 @@
         </div>
     </div>
     
+    <h1 id="featured-text"> Featured photos from our community: </h1>
+
     <div id="footer">
         <button id="arrow-left" onclick="show(-1)"><i class="arrow left"></i></button>
+
         <div id="carousel-container">
         <ul id="slider">
             <li class="slider-page">
@@ -151,9 +154,10 @@
             </li>
         </ul>
         </div>
+
         <button id="arrow-right" onclick="show(+1)"><i class="arrow right"></i></button>
     </div>
-
+  
     <script>
         let slider = document.getElementById('slider');
         let li_els = slider.querySelectorAll('li');

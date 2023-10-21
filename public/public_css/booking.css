@@ -27,11 +27,14 @@ body::after {
 
 #finland-map
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: #6b6b6b #f1f1f1;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
     max-height: 220px;
 }
 
@@ -54,12 +57,24 @@ body::after {
 
 #finland-map::-webkit-scrollbar-track 
 {
+    display: flex;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 25px;
 }
 
+#booking-container
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 #map {
-    border: 1px groove rgba(50, 64, 71, 0.7);
+    margin-top: 10px;
+    border-radius: 25px;
+    width: 50%;
+    border: 2px groove rgba(50, 64, 71, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .schema-container
@@ -77,24 +92,55 @@ body::after {
 }
 
 .error-message {
-    background-color: #ffcccc;
-    color: #cc0000;
-    border: 1px solid #cc0000;
+    width: 50%;
+    background-color: rgba(49, 10, 10, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-top: 10px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6b6b6b #f1f1f1;
+    -webkit-overflow-scrolling: touch;
+    max-height: 220px;
+}
+
+.error-message:-webkit-scrollbar 
+{
+    width: 12px;
+}
+
+.error-message::-webkit-scrollbar-thumb 
+{
+    background: rgba(49, 16, 16, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+
+.error-message::-webkit-scrollbar-thumb:hover
+{
+    background: linear-gradient(rgba(192, 98, 98, 0.2), rgba(153, 152, 152, 0.1)) !important;
+}
+
+.error-message::-webkit-scrollbar-track 
+{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
 }
 
 .success-message {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #155724;
+    background-color: rgba(30,122,32,0.3);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
 }   
 
 #trip-details-container {
+    width: 80%;
     margin: 20px;
     color: white;
     align-items: center;
@@ -127,17 +173,19 @@ h2 {
   flex: 1;
   text-align: center;
   margin: 5px;
+  font-size: 20px;
   margin-top: 10px;
   padding: 0 25px;
   transition: background 0.3s;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
+  border: 1px groove rgba(255, 255, 255, 0.4);
   height: 50px;
 }
 
 .button-enroll
 {
-    background-color: rgba(102, 143, 204, 0.9) !important;
+    background-color: rgba(69, 105, 158, 0.9) !important;
 }
 
 .button-cancel-enroll

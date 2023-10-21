@@ -47,6 +47,7 @@
     <div class="nav-item">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
 </div>
 
+<div id="booking-container">
 <div id="map" style="height: 400px;"></div>
 
 <div id="trip-details-container">
@@ -111,8 +112,8 @@
                         </form>
                     @endif
 
-                        <h3 style="margin-top: 35px;">${clickedTrip.description}</h3>
-                        <hr  style="width: 60%;" class="faded-hr">
+                        <h3 style="margin-top: 35px; font-size:21px;">${clickedTrip.description}</h3>
+                        <hr style="width: 60%;" class="faded-hr"></hr>
                         <p>Start Date: ${clickedTrip.start_date}</p>
                         <p>End Date: ${clickedTrip.end_date}
                         <hr  style="width: 60%;" class="faded-hr">
@@ -145,6 +146,7 @@
         }
     });
 </script>
+</div>
 
 <script>
         function redirect_to_route(route) 

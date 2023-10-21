@@ -226,14 +226,13 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  background-color: rgb(36, 81, 150);
+  border-bottom: 10px groove black;
+  width: 100%; 
   text-align: center;
+  text-decoration-color: whitesmoke;
   background-image: url("scan.png");
   background-repeat: no-repeat;
   background-size: cover;
-  text-decoration-color: whitesmoke;
-  margin-bottom: 165px;
 }
 
 #middle-content 
@@ -256,7 +255,6 @@ body, html {
   width: 250px;
   padding: 20px;
   text-align: center;
-  position: absolute;
   font-size: 24px;
   left: 0;
   top: 315px;
@@ -321,8 +319,15 @@ body, html {
 
 #text-middle 
 {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px groove rgba(255,255,255, 0.6);
+  padding: 15px;
+  border-radius: 25px;
+  letter-spacing: 2px;
+  text-align: center;
   margin: 20px 0;
   color: aliceblue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #middle-center 
@@ -344,7 +349,7 @@ body, html {
   position: absolute;
   display: grid;
   place-items: center;
-  top: -6.5%;
+  top: -5%;
   left: -2.5%;
   width: 37px;
   height: 37px;
@@ -490,19 +495,32 @@ body, html {
   }
 }
 
-#footer 
+#featured-text
 {
-  width: 100%;
-  height: 200px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px groove rgba(255,255,255, 0.6);
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 25px;
+  color:rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#footer {
+  width: 90%;
+  margin-top: 0px;
+  height: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background: rgba(16, 33, 49, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
+  flex: 1 1 auto;
   justify-content: center;
   align-items: center;
-  margin-top: 23px;
-  padding: 0 20px;
-  flex-shrink: 0;
+  padding: 20px;
+  border-radius: 25px;
+  position: relative;
   box-sizing: border-box;
 }
 
@@ -525,7 +543,6 @@ body, html {
 
 #arrow-right 
 {
-  position: relative;
   margin-left: 15px;
 }
 
@@ -584,7 +601,6 @@ body, html {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 0.5s ease-in-out;
   opacity: 0.8;
 }
 
@@ -598,7 +614,7 @@ body, html {
   max-width: 600px;
 }
 
-#text-container 
+#text-container   
 {
   height: 200px;
   overflow: auto;
