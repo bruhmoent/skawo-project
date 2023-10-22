@@ -136,7 +136,7 @@ body::after {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    background: rgba(32, 52, 70, 0.4);
+    background: rgba(32, 52, 70, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -150,7 +150,7 @@ h2 {
     margin-top: 20px;
     height: 200px;
     border-radius: 10px;
-    background: rgba(18, 30, 41, 0.4);
+    background: rgba(18, 30, 41, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
