@@ -10,6 +10,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('public_css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
+
+    <!-- Scripts -->
+    <script src="{{ asset('scripts/main.js') }}"></script>
     
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
@@ -35,25 +38,29 @@
 
     <div class="main-container">
         <div class="container-form">
-            <h2>Sign In</h2>
-            <hr class="faded-hr" style="width: 80%;">
+            <h2>Welcome back!</h2>
+            <hr class="faded-hr" style="width: 60%;"></hr>
             <form method="POST" action="{{ route('sign_in.route') }}">
                 @csrf
 
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" name="username" autofocus>
-                </div>
+                <fieldset>
+                    <legend>Sign In</legend>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
-                </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" class="form-control" name="username" autofocus>
+                    </div>
 
-                <button type="submit" class="btn btn-primary-form">
-                    Sign In
-                </button>
-            </form>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-form">
+                        Sign In
+                    </button>
+                </fieldset>
+          </form>
 
             @if(session('status') && session('message'))
              <div class="{{ session('status') }}-message-form">

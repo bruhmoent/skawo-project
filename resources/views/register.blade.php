@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('public_css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
     
+    <!-- Scripts -->
+    <script src="{{ asset('scripts/main.js') }}"></script>
+
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
@@ -35,45 +38,45 @@
     </div>
 
     <div class="main-container">
-        <div class="container-form">
-            <h2>Register</h2>
-            <hr class="faded-hr" style="width: 80%;">
-            <form method="POST" action="{{ route('register.route') }}">
-                @csrf
+    <div class="container-form">
+        <fieldset style="padding: 10px;">
+                <legend>Register</legend>
+                <form method="POST" action="{{ route('register.route') }}">
+                    @csrf
 
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" name="username" autofocus>
-                </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" class="form-control" name="username" autofocus>
+                    </div>
 
-                <div class="form-group">
-                    <label for="surname">Surname</label>
-                    <input id="surname" type="text" class="form-control" name="surname" required autocomplete="surname" autofocus>
-                </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input id="surname" type="text" class="form-control" name="surname" required autocomplete="surname" autofocus>
+                    </div>
 
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus>
-                </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" class "form-control" name="name" required autocomplete="name" autofocus>
+                    </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
-                </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
+                    </div>
 
-                <button type="submit" class="btn btn-primary-form">
-                    Register
-                </button>
-            </form>
+                    <button type="submit" class="btn btn-primary-form">
+                        Register
+                    </button>
+                </form>
+        </fieldset>
 
-            @if(session('status') && session('message'))
-             <div class="{{ session('status') }}-message-form">
-                 {{ session('message') }}
+        @if(session('status') && session('message'))
+            <div class="{{ session('status') }}-message-form">
+                {{ session('message') }}
             </div>
-            @endif
-
-        </div>
+        @endif
     </div>
+</div>
 
     <script>
         function redirect_to_route(route) 

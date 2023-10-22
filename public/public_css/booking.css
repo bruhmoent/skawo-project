@@ -25,8 +25,7 @@ body::after {
     z-index: -5;
 }
 
-#finland-map
-{
+#finland-map {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,32 +37,27 @@ body::after {
     max-height: 220px;
 }
 
-#finland-map::-webkit-scrollbar 
-{
+#finland-map::-webkit-scrollbar {
     width: 12px;
 }
 
-#finland-map::-webkit-scrollbar-thumb 
-{
+#finland-map::-webkit-scrollbar-thumb {
     background: rgba(16, 33, 49, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
 }
 
-#finland-map::-webkit-scrollbar-thumb:hover
-{
+#finland-map::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(rgba(98, 124, 192, 0.2), rgba(153, 152, 152, 0.1)) !important;
 }
 
-#finland-map::-webkit-scrollbar-track 
-{
+#finland-map::-webkit-scrollbar-track {
     display: flex;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 25px;
 }
 
-#booking-container
-{
+#booking-container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -77,8 +71,7 @@ body::after {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.schema-container
-{
+.schema-container {
     background: linear-gradient(rgba(253, 253, 253, 0.2), rgba(232, 232, 236, 0.1)) !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -106,25 +99,21 @@ body::after {
     max-height: 220px;
 }
 
-.error-message:-webkit-scrollbar 
-{
+.error-message::-webkit-scrollbar  {
     width: 12px;
 }
 
-.error-message::-webkit-scrollbar-thumb 
-{
+.error-message::-webkit-scrollbar-thumb {
     background: rgba(49, 16, 16, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
 }
 
-.error-message::-webkit-scrollbar-thumb:hover
-{
+.error-message::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(rgba(192, 98, 98, 0.2), rgba(153, 152, 152, 0.1)) !important;
 }
 
-.error-message::-webkit-scrollbar-track 
-{
+.error-message::-webkit-scrollbar-track {
     display: flex;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 25px;
@@ -166,8 +155,7 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.button-enroll, .button-cancel-enroll
-{
+.button-enroll, .button-cancel-enroll {
   color: white;
   line-height: 50px;
   flex: 1;
@@ -183,23 +171,19 @@ h2 {
   height: 50px;
 }
 
-.button-enroll
-{
+.button-enroll {
     background-color: rgba(69, 105, 158, 0.9) !important;
 }
 
-.button-cancel-enroll
-{
+.button-cancel-enroll {
     background-color: rgba(184, 32, 32, 0.4) !important;
 }
 
-.button-enroll:hover
-{
+.button-enroll:hover {
   background: rgba(165, 165, 165, 0.8) !important;
 }
 
-.button-cancel-enroll:hover
-{
+.button-cancel-enroll:hover {
     background-color: rgba(221, 88, 88, 0.9) !important;
 }
 

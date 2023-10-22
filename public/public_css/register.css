@@ -1,14 +1,37 @@
-* 
-{
+* {
     font-family: 'Georgia', 'Times New Roman', Times, serif;
     box-sizing: border-box;
 }
 
-body, html 
-{
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+body {
+    background-image: url('https://i.ytimg.com/vi/nY_dTaw6ook/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: "";
+    background: inherit;
+    position: fixed;
+    filter: blur(10px) brightness(60%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+}
+
+input{
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .main-container {
@@ -18,37 +41,42 @@ body, html
     padding-top: 20px;
 }
 
+fieldset{
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
 .container-form {
-    width: 25%;
-    height: 65%;
+    width: 50%;
+    height: 450px;
     color: white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px groove rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-.form-group 
-{
+.form-group {
     margin-bottom: 20px;
     width: 100%;
     text-align: center;
 }
 
-.form-group label 
-{
+.form-group label {
     color: #ffffff;
     font-size: 18px;
     margin-bottom: 5px;
     display: block;
 }
 
-.form-group input 
-{
+.form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #005a8d;
@@ -56,8 +84,7 @@ body, html
     font-size: 16px;
 }
 
-.btn-primary-form 
-{
+.btn-primary-form {
     background: #005a8d;
     border: 1px solid #005a8d;
     border-radius: 10px;
@@ -70,26 +97,57 @@ body, html
     transition: background 0.3s ease;
 }
 
-.btn-primary-form:hover 
-{
+.btn-primary-form:hover {
     background: #003450;
 }
 
-.error-message-form 
-{
-    background-color: #ffcccc;
-    color: #cc0000;
-    border: 1px solid #cc0000;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
+.error-message-form,
+.success-message-form {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 4px;
 }
 
-.success-message-form 
-{
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #155724;
+.error-message-form {
+    width: 50%;
+    background-color: rgba(49, 10, 10, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6b6b6b #f1f1f1;
+    -webkit-overflow-scrolling: touch;
+    max-height: 220px;
+}
+
+.error-message-form::-webkit-scrollbar  {
+    width: 12px;
+}
+
+.error-message-form ::-webkit-scrollbar-thumb {
+    background: rgba(49, 16, 16, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+
+.error-message-form ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgba(192, 98, 98, 0.2), rgba(153, 152, 152, 0.1)) !important;
+}
+
+.error-message-form ::-webkit-scrollbar-track {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+}
+
+.success-message-form {
+    background-color: rgba(30,122,32,0.3);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;

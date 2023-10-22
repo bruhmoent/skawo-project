@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 20, 2023 at 03:10 AM
+-- Generation Time: Paź 20, 2023 at 01:19 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -111,7 +111,8 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (36, 'App\\Models\\User', 9, 'user-access-token', '967edd0220af8c2bc1e696b8a581e56e78db217561176ad0ea3c1de919072ca7', '[\"*\"]', NULL, NULL, '2023-10-19 22:35:28', '2023-10-19 22:35:28'),
 (37, 'App\\Models\\User', 3, 'user-access-token', 'b26f8da400ce614a3c221536b5875dbbe2dc630c25c7e5b95ccb5372d03774c1', '[\"*\"]', NULL, NULL, '2023-10-19 22:43:53', '2023-10-19 22:43:53'),
 (38, 'App\\Models\\User', 9, 'user-access-token', '33f397551f5ffabe8bacf5a97c639164c4697f917fdd5311c515e7bcb001ad6d', '[\"*\"]', NULL, NULL, '2023-10-19 22:46:12', '2023-10-19 22:46:12'),
-(39, 'App\\Models\\User', 9, 'user-access-token', '8d0b6202c2bfe18a9dfcf60747864f84c5df9a69fb57741cac540322286111dc', '[\"*\"]', NULL, NULL, '2023-10-19 23:09:35', '2023-10-19 23:09:35');
+(39, 'App\\Models\\User', 9, 'user-access-token', '8d0b6202c2bfe18a9dfcf60747864f84c5df9a69fb57741cac540322286111dc', '[\"*\"]', NULL, NULL, '2023-10-19 23:09:35', '2023-10-19 23:09:35'),
+(40, 'App\\Models\\User', 9, 'user-access-token', 'fea5299b7813d10e49696e50201debcb5e777be89184dfad5417bd451768b84c', '[\"*\"]', NULL, NULL, '2023-10-19 23:11:31', '2023-10-19 23:11:31');
 
 -- --------------------------------------------------------
 
@@ -129,54 +130,20 @@ CREATE TABLE `trip_schedules` (
   `longitude` decimal(11,8) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `country` varchar(40) DEFAULT NULL
+  `country` varchar(40) DEFAULT NULL,
+  `trip_schema` varchar(99) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `trip_schedules`
 --
 
-INSERT INTO `trip_schedules` (`id`, `participants`, `start_date`, `end_date`, `description`, `latitude`, `longitude`, `created_at`, `updated_at`, `country`) VALUES
-(1, '[3]', '2023-10-02', '2023-10-05', 'Hi', 62.43936700, 10.35206400, NULL, NULL, NULL),
-(2, '[1,3,9]', '2023-10-20', '2023-10-22', 'A trip to the mountains', 62.43936700, 10.35206400, NULL, NULL, 'Finland'),
-(3, '[1,2,3,4,2,5,6,7]', '2023-10-20', '2023-10-25', 'IKEA History Trip', 65.93896700, 20.76831200, NULL, NULL, 'Sweden'),
-(4, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(5, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(6, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(7, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(8, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(9, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(10, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(11, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(12, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(13, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(14, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(15, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(16, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(17, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(18, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(19, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(20, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(21, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(22, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(23, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(24, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(25, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(26, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(27, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(28, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(29, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(30, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(31, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(32, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(33, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(34, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(35, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(36, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(37, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(38, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(39, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL),
-(40, '[1,2,3,4]', '2023-09-21', '2023-09-28', 'A trip to the mountains', 45.12345678, -78.12345678, NULL, NULL, NULL);
+INSERT INTO `trip_schedules` (`id`, `participants`, `start_date`, `end_date`, `description`, `latitude`, `longitude`, `created_at`, `updated_at`, `country`, `trip_schema`) VALUES
+(41, '[9]', '2023-11-01', '2023-11-08', 'Finland Forest Camp', 64.56178191, 27.06494018, NULL, NULL, 'Finland', '8am - Group meetup starts at: Place A; 10am - Guided tour of Location B...'),
+(42, '[]', '2023-12-13', '2023-12-29', 'IKEA History Celebration Trip', 56.55203546, 14.13591407, NULL, NULL, 'Sweden', '8am - Group meetup starts at: Place X; 10am - Guided tour of Location Y...'),
+(43, '[9]', '2023-10-20', '2023-10-26', 'Learn about Norway`s Culture!', 59.91390000, 10.75220000, NULL, NULL, 'Norway', '8am - Group meetup starts at: Place P; 10am - Guided tour of Location Q...'),
+(44, '[]', '2023-10-20', '2023-10-26', 'Explore Together: Helsinki', 60.16650760, 24.92389263, NULL, NULL, 'Finland', '8am - Group meetup starts at: Place C; 10am - Guided tour of Location D...'),
+(45, '[]', '2023-10-20', '2023-10-26', 'IKEA History Celebration Trip', 56.55203546, 14.13591407, NULL, NULL, 'Sweden', '8am - Group meetup starts at: Place R; 10am - Guided tour of Location S...');
 
 -- --------------------------------------------------------
 
@@ -200,8 +167,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `trip_id`, `created_at`, `updated_at`) VALUES
-(1, 'bober', 'bobbing', 'jajo', '3', 1, NULL, NULL),
-(2, 'john_doe', 'John', 'Doe', '$2y$10$7UEAhXykOT14uzTE9AhysOddQhW.PlJTwiehQ15Cd1/6My.CGzyty', 1, NULL, NULL),
+(1, 'bober', 'bobbing', 'jajo', '3', NULL, NULL, NULL),
+(2, 'john_doe', 'John', 'Doe', '$2y$10$7UEAhXykOT14uzTE9AhysOddQhW.PlJTwiehQ15Cd1/6My.CGzyty', NULL, NULL, NULL),
 (3, '1', '1', '1', '$2y$10$V1qFuHpOOULcPpAwE.aNdOCWvMcPMjnSTem8qDDYgRSwp/amzcE3a', NULL, NULL, NULL),
 (4, '123', '123', '123', '$2y$10$.Kte5l7MIIhK7yssVm7U3.T0zKs/ESh2wjo4uDIwPBkDJfHvV0h7W', NULL, NULL, NULL),
 (5, '213', '123', '123', '$2y$10$kJPQOxkGpepwrI06FULcFOCTYKtI5eEAQd06Oq2oKO./BskZelIE6', NULL, NULL, NULL),
@@ -327,13 +294,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `trip_schedules`
 --
 ALTER TABLE `trip_schedules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`
