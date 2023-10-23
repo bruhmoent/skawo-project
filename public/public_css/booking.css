@@ -28,7 +28,6 @@ body::after {
 #finland-map {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     overflow: auto;
     scrollbar-width: thin;

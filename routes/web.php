@@ -37,6 +37,7 @@ Route::get('/sign_in', function () {
     return view('sign_in');
 })->name('sign.in.route');
 
+
 Route::get('/sign_out', function (\Illuminate\Http\Request $request) {
     // Clear the username parameter.
     $request->merge(['username' => null]);
@@ -52,6 +53,10 @@ Route::get('/sign_out', function (\Illuminate\Http\Request $request) {
 Route::get('/register', function () {
     return view('register');
 })->name('register.route');
+
+Route::get('/pricing', function () {
+    return view('pricing');
+})->name('pricing.route');
 
 Route::middleware('web')->group(function () {
     // Other routes:

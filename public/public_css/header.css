@@ -424,6 +424,10 @@ body, html {
   animation: bounce 0.5s infinite alternate;
 }
 
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
+
 @keyframes bounce{
   0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);

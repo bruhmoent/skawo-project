@@ -43,7 +43,7 @@
 
 <div class="container">
     <div class="nav-item" onclick="redirect_to_route('about')">ABOUT</div>
-    <div class="nav-item" onclick="redirect_to_route('start_booking')">START BOOKING</div>
+    <div class="nav-item" onclick="redirect_to_route('pricing')">PRICING</div>
     <div class="nav-item" onclick="redirect_to_route('sign_in')">SIGN IN</div>
     <div class="nav-item" onclick="redirect_to_route('sign_out')">SIGN OUT</div>
     <div class="nav-item">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
@@ -102,6 +102,14 @@
 
             tripMarker.on('click', (function(clickedTrip) {
                 return function() {
+                    var startDate = new Date(clickedTrip.start_date);
+                    var endDate = new Date(clickedTrip.end_date);
+                    var timeDiff = endDate - startDate;
+                    var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // 1000 ms, 3600 seconds, 24 hours.
+
+                    // Calculate the price per day.
+                    var pricePerDay = clickedTrip.pricing / daysDiff;
+
                     $('#finland-map').html(`
                     @if (session('status') == 'error' && session('message') == 'User is already enrolled.')
                     <div class="{{ session('status') }}-message">
@@ -114,11 +122,13 @@
                         </form>
                     @endif
 
-                        <h3 style="margin-top: 35px; font-size:21px;">${clickedTrip.description}</h3>
+                        <h3 style="margin-top: 35px; font-size:21px;"><b>"</b>${clickedTrip.description}<b>"</b></h3>
                         <hr style="width: 60%;" class="faded-hr"></hr>
                         <p>Start Date: ${clickedTrip.start_date}</p>
                         <p>End Date: ${clickedTrip.end_date}
-                        <hr  style="width: 60%;" class="faded-hr">
+                        <p>Number of Days: ${daysDiff}</p>
+                        <p>Price per Day: $${pricePerDay.toFixed(2)}</p>
+                        <br><h3>Trip schema: </h3>
                         <div class="schema-container">
                         <p>End Date: ${clickedTrip.trip_schema}
                         </div>
@@ -160,8 +170,8 @@
                 case 'about':
                     redirect_url = "{{ route('about.route') }}";
                     break;
-                case 'start_booking':
-                    redirect_url = "{{ route('start.booking.route') }}";
+                case 'pricing':
+                    redirect_url = "{{ route('pricing.route') }}";
                     break;
                 case 'sign_in':
                     redirect_url = "{{ route('sign.in.route') }}";

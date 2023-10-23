@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <title>Skawo - Welcome</title>
+    <title>Skawo - Pricing</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +15,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('public_css/header.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('public_css/pricing.css') }}">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Icon -->
     <link rel="icon" href="{{ asset('Skawo-Glass.ico') }}" type="image/x-icon">
 </head>
@@ -41,95 +45,103 @@
     </div>
 
     <div id="middle">
-        <h1 id="text-middle">Welcome to Skawo!</h1>
+        <h1 id="text-middle">Our pricing list:</h1>
         <div id="middle-content">
-        <div id="infodiv">
-        <h5 style="font-size: 24px;">Happening now:</h5>
-        <hr class="faded-hr" style="width: 80%;">
+
+        <div id="middle-center">
+            <div id="text-container">
+            <select id="country-select">
+                <option value="all">All</option>
+                <option value="Finland">Finland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Norway">Norway</option>
+            </select>
+
+            <table id="pricing-table" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Trip Description</th>
+                        <th>Country</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Pricing ($)</th>
+                        <th>Number of Days</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <p id="average-price">Average Price Per Day: $0.00</p>
+        </div>
 
         <?php
-            $today = now()->toDateString();
-            $next_month = now()->addMonth()->toDateString();
+            $trip_schedules = DB::table('trip_schedules')
+                            ->get();
 
-            $trip_scheludes = DB::table('trip_schedules')
-                                ->where('start_date', '>=', $today)
-                                ->where('start_date', '<=', $next_month)
-                                ->get();
-
-            if ($trip_scheludes->isEmpty()) 
-            {
+            if ($trip_schedules->isEmpty()) {
                 echo '<div id="error-message">';
                 echo '<div class="animated-text"><i class="fa-solid fa-triangle-exclamation fa-beat fa-3x" style="color: rgb(255, 255, 255);"></i></div>';
                 echo '<hr class="faded-hr" style="width: 50%;">';
-                echo 'Sorry! There aren\'t currently any active trips.';
-                echo '</div>';
-            } 
-            else 
-            {
-                echo '<div id="offers-list-container">';
-                foreach ($trip_scheludes as $trip_schelude)
-                {
-                    $trip_name = $trip_schelude->description;
-                    $trip_country = $trip_schelude->country;
-                    $participant_ids = json_decode($trip_schelude->participants);
-                    $participant_count = count($participant_ids);
-                    $remaining_slots = max(0, 8 - $participant_count);
-
-                    echo '<div class="trip-offer">';
-                    echo '<div style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 25px; letter-spacing:2px; padding: 10px; width: 150px; text-align: center; font-size: 14px; font-weight: bold; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);">
-                    ' . $trip_country . ' </div>';
-                    echo '<h2>' . $trip_name . '</h2><hr class="faded-hr" style="width: 60%;"> Participants: <hr class="faded-hr" style="width: 60%;"><br>';
-                    echo '<div class="person-container">';
-
-                    for ($i = 0; $i < $participant_count; $i++) 
-                    {
-                        echo '<i class="fa-solid fa-person participant"></i>';
-                    }
-                    
-                    for ($i = 0; $i < $remaining_slots; $i++) 
-                    {
-                        echo '<i class="fa-solid fa-person" style="color: gray;"></i>';
-                    }
-                    
-                    echo '</div>';
-                    echo '</div>';
-                }
+                echo 'Sorry! We had a problem finding trips in our database.';
                 echo '</div>';
             }
         ?>
-        </div>
 
-        <div id="middle-center">
-            <div id="spin-wheel">
-                <div id="spinner">☸</div>
-            </div>
+        <script>
+            $(document).ready(function() {
+            var tripSchedules = {!! json_encode($trip_schedules) !!};
 
-            <div id="text-container">
-                <h1>Your Gateway to Nordic Adventures!</h1>
-                <hr class="faded-hr" style="width: 80%;">
-                <p>
-                    Are you ready to embark on a journey of discovery through the stunning landscapes and vibrant cultures of Scandinavia? Look no further than Skawo - your digital passport to a world of Nordic wonders!
-                </p>
+            function updatePricingTable(selectedCountry) {
+                var totalPrice = 0;
+                var totalDays = 0;
+                var $tableBody = $('#pricing-table tbody');
 
-                <p>
-                    Skawo is more than just a web app; it's an invitation to immerse yourself in the beauty and magic that Scandinavia has to offer. From the majestic fjords of Norway to the picturesque forests of Sweden, and the fascinating history of Denmark - Skawo is here to guide you on an unforgettable adventure.
-                </p>
+                // Clear the existing table content.
+                $tableBody.empty();
 
-                <h2>Why Choose Skawo?</h2>
+                tripSchedules.forEach(function(trip) {
+                if (selectedCountry === 'all' || trip.country === selectedCountry) {
+                    var startDate = new Date(trip.start_date);
+                    var endDate = new Date(trip.end_date);
+                    var timeDiff = endDate - startDate;
+                    var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-                <ul>
-                <li>Explore the best destinations across Scandinavia with ease and convenience.</li>
-                <li>Discover hidden gems and lesser-known spots recommended by fellow adventurers.</li>
-                <li>Access expert travel tips and curated itineraries to make the most of your trip.</li>
-                <li>Connect with a community of like-minded explorers and share your experiences.</li>
-                </ul>
+                    // Check if trip.pricing is a valid number.
+                    if (!isNaN(parseFloat(trip.pricing))) {
+                        totalPrice += parseFloat(trip.pricing);
+                        totalDays += daysDiff;
 
-                <p>
-                    Join us at Skawo and unlock a world of breathtaking landscapes, rich history, and the warm hospitality of the Nordic region. Your adventure begins here - let's embrace the beauty of Scandinavia together!
-                </p>
-            </div>
+                        $tableBody.append(`
+                            <tr>
+                                <td>${trip.description}</td>
+                                <td>${trip.country}</td>
+                                <td>${trip.start_date}</td>
+                                <td>${trip.end_date}</td>
+                                <td>${parseFloat(trip.pricing).toFixed(2)}</td>
+                                <td>${daysDiff}</td>
+                            </tr>
+                        `);
+                    }
+                }
+                });
+                // Calculate and display the average price per day.
+                var averagePricePerDay = totalDays > 0 ? totalPrice / totalDays : 0;
+                $('#average-price').text('Average Price Per Day: $' + averagePricePerDay.toFixed(2));
+            }
+
+                // Initialize with all countries selected.
+                updatePricingTable('all');
+
+                // Handle country selection change.
+                $('#country-select').change(function() {
+                    var selectedCountry = $(this).val();
+                    updatePricingTable(selectedCountry);
+                });
+            });
+
+            </script>
             <button id="mid-but">
-                <div id="mid-but-text" onclick="redirect_to_route('register')">Register</div>
+                <div id="mid-but-text" onclick="redirect_to_route('start_booking')">Start booking!</div>
             </button>
         </div>
     </div>
