@@ -37,7 +37,6 @@ Route::get('/sign_in', function () {
     return view('sign_in');
 })->name('sign.in.route');
 
-
 Route::get('/sign_out', function (\Illuminate\Http\Request $request) {
     // Clear the username parameter.
     $request->merge(['username' => null]);
