@@ -1,0 +1,16 @@
+#session-container
+{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img
+{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}

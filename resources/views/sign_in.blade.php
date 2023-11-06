@@ -90,9 +90,6 @@
                 case 'sign_out':
                     redirect_url = "{{ route('sign.out.route') }}";
                     break;
-                case 'register':
-                    redirect_url = "{{ route('register.route') }}";
-                    break;
                 default:
                     break;
             }

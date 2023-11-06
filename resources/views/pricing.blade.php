@@ -41,7 +41,7 @@
         <div class="nav-item" onclick="redirect_to_route('start_booking')">START BOOKING</div>
         <div class="nav-item" onclick="redirect_to_route('sign_in')">SIGN IN</div>
         <div class="nav-item" onclick="redirect_to_route('sign_out')">SIGN OUT</div>
-        <div class="nav-item">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
+        <div class="nav-item" onclick="redirect_to_route('account')">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
     </div>
 
     <div id="middle">
@@ -213,6 +213,9 @@
                     break;
                 case 'register':
                     redirect_url = "{{ route('register.route') }}";
+                    break;
+                case 'account':
+                    redirect_url = "{{ route('account.route') }}";
                     break;
                 default:
                     break;

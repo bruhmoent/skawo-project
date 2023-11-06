@@ -46,7 +46,7 @@
     <div class="nav-item" onclick="redirect_to_route('pricing')">PRICING</div>
     <div class="nav-item" onclick="redirect_to_route('sign_in')">SIGN IN</div>
     <div class="nav-item" onclick="redirect_to_route('sign_out')">SIGN OUT</div>
-    <div class="nav-item">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
+    <div class="nav-item" onclick="redirect_to_route('account')">Welcome, <span id="username-display">{{ request()->username ?? 'Guest'}}</span>!</div>
 </div>
 
 <div id="booking-container">
@@ -179,8 +179,8 @@
                 case 'sign_out':
                     redirect_url = "{{ route('sign.out.route') }}";
                     break;
-                case 'register':
-                    redirect_url = "{{ route('register.route') }}";
+                case 'account':
+                    redirect_url = "{{ route('account.route') }}";
                     break;
                 default:
                     break;

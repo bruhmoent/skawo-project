@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SignInController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Cookie;
 use Laravel\Sanctum\PersonalAccessToken;
 use App\Http\Middleware\SetUsernameMiddleware;
@@ -56,6 +57,12 @@ Route::get('/register', function () {
 Route::get('/pricing', function () {
     return view('pricing');
 })->name('pricing.route');
+
+Route::get('/error', function () {
+    return view('error');
+})->name('error.route');
+
+Route::get('/account', 'App\Http\Controllers\UserController@getUserDataAndTrips')->name('account.route');
 
 Route::middleware('web')->group(function () {
     // Other routes:
